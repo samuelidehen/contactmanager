@@ -1,21 +1,21 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Contact from "./Contact";
 import { Consumer } from "../../context";
 export class Contacts extends Component {
   render() {
     return (
       <Consumer>
-        {value => {
+        {(value) => {
           const { contacts } = value;
           return (
-            <React.Fragment>
+            <Fragment>
               <h1 className="display-4 mb-2">
                 <span className="text-info">Contact</span> List
               </h1>
-              {contacts.map(contact => (
+              {contacts.map((contact) => (
                 <Contact key={contact.id} contact={contact} />
               ))}
-            </React.Fragment>
+            </Fragment>
           );
         }}
       </Consumer>
